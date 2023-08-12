@@ -114,3 +114,8 @@ delete dog1;//manually destructor is called for dynamic memory allocation
 //scope end to destructor called for static
 //for static we dont need to  manually call in case of static
 }
+
+//garbage collector
+//what is memory leak and how to prevent it
+//padding and greedy alignment
+

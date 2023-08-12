@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Neer/Downloads/DSA SUPREME/New folder",
-      "program": "c:/Users/Neer/Downloads/DSA SUPREME/New folder/build/Debug/outDebug",
+      "cwd": "c:/Users/Neer/Downloads/DSA SUPREME/Recursion",
+      "program": "c:/Users/Neer/Downloads/DSA SUPREME/Recursion/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

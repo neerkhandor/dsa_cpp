@@ -1,1 +1,1 @@
-print(head);
+cout<<"middle element is "<<getMiddle(head)->data<<endl;

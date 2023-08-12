@@ -34,7 +34,7 @@ Node* getMiddle(Node*& head){
     }
     Node* slow=head;
     Node* fast=head;
-    while(slow!=NULL && fast!=NULL){
+    while(fast!=NULL && slow!=NULL){
         fast=fast->next;
         if(fast!=NULL){
             fast=fast->next;
@@ -84,7 +84,6 @@ if(k>len){
     //if we still have nodes to reverse
     if(forward!=NULL){
      head->next= reversek(forward,k);
-    
     }
      return prev;
 }
@@ -148,7 +147,7 @@ Node* removeNode(Node* &head){
             break;
         }
     }
-    Node *prev=fast;
+    Node *prev;
     while(slow!=fast)
     {
         prev=fast;
@@ -179,12 +178,15 @@ seventh->next=eighth;
 Node *ninth=new Node(90);
 eighth->next=ninth;      // loop not present
 ninth->next=fifth;    // loop present
-// print(head);
+// print(head); //infinite loop
 cout<<endl;
 // cout<<"middle element is "<<getMiddle(head)->data<<endl;
-// int k=4;
-// head=reversek(head,k);
-// print(head);
+// cout<<"everything works"<<endl;
+// Node* ans1=getMiddle(head);
+// cout<<ans1<<endl;
+int k=4;
+head=reversek(head,k);
+print(head);
 bool ans=checkForLoop(head);
 if(ans){
     cout<<"loop present"<<endl;

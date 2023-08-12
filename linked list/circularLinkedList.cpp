@@ -36,7 +36,6 @@ int getLength(Node* &head){
 }
 void insertAtHead(Node* &head,int data){
     if(head==NULL){
-
         Node* newNode=new Node(data);
         head=newNode;
     }

@@ -17,6 +17,24 @@ class Node{
                 cout<<"the node that is deleted is "<<this->data<<endl;
         }
 };
+Node* reverse(Node* &head){
+    if(head==NULL){
+        return NULL;
+    }
+    if(head->next==NULL){
+        return head;
+    }
+    Node*prev=NULL;
+    Node*curr=head;
+    Node*forward;
+    while(curr!=NULL){
+        forward=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=forward;
+    }
+    return prev;
+}
 void print(Node * &head){
 Node *temp=head;
 while(temp!=NULL){
@@ -179,6 +197,7 @@ print(head);
 cout<<endl;
 int ans=getLength(head);
 cout<<"length of linked list before deleteion is " <<ans<<endl;
+
 deletion(head,tail,6);
 
 print(head);
@@ -188,4 +207,6 @@ cout<<"tail : "<<tail->data<<endl;
 int ans1=getLength(head);
 cout<<endl;
 cout<<"length of linked list after deletion is " <<ans1<<endl;
+
+
 }

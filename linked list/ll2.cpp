@@ -2,7 +2,7 @@
 using namespace std;
 
 class Node{
- public:
+public:
     int data;
     Node* prev;
     Node* next;
@@ -20,9 +20,8 @@ class Node{
     ~Node(){
         cout<<"the data deleted is "<<this->data<<endl;
     }
-   
 };
- void print(Node* &head){
+void print(Node* &head){
         Node *temp=head;
         while(temp!=NULL){
             cout<<temp->data<<" ";
@@ -33,10 +32,8 @@ int getLength(Node* &head){
     int len=0;
      Node *temp=head;
         while(temp!=NULL){
-         len++;
-        temp=temp->next;
-          
-            
+        len++;
+        temp=temp->next;  
         }
         return len;
 }

@@ -16,6 +16,20 @@ class Node{
                 cout<<"the node that is deleted is "<<this->data<<endl;
         }
 };
+Node* reverse(Node* &head){
+    if(head==NULL){
+        return NULL;
+    }
+    Node* prev=NULL;
+    Node* curr=head;
+    Node* forward=nullptr;
+    while(curr!=nullptr){
+        forward=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=forward;
+    }
+}
 bool checkPalindrome(Node*& head){
     if(head==NULL){
         return false;
@@ -24,8 +38,16 @@ bool checkPalindrome(Node*& head){
         return true;
     }
     // >1 node ke liye chalega
-    Node*slow=head;
-    Node*fast=head->next;
+    Node* slow=head;
+    Node* fast=head->next;
+    while(fast!=NULL){
+        fast=fast->next;
+        if(fast!=nullptr){
+            fast=fast->next;
+            slow=slow->next;
+        }
+        slow->next=reverse(slow->next);
+    }
     
 
 }

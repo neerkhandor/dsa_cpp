@@ -7,18 +7,22 @@ void merge(int *arr,int n,int s,int e){
     int *leftArray=new int[len1];
     int *rightArray=new int[len2];
     int k=s;
+    //copying elements of length len1 to leftArray
     for(int i=0;i<len1;i++){
         leftArray[i]=arr[k];
         k++;
     }
     k=mid+1;
+    //now k is pointing to index mid+1
+     //copying elements of length len2 to rightArray
     for(int i=0;i<len2;i++){
         rightArray[i]=arr[k];
         k++;
     }
-    int leftIndex=0;
-    int rightIndex=0;
-    int mainArrayIndex=s;
+    int leftIndex=0;//maintaining index for left array
+    int rightIndex=0;//maintaining index for right array
+    int mainArrayIndex=s;//this is final merged array so its 
+    //starting index is s
     while(leftIndex<len1 && rightIndex<len2){
         if(leftArray[leftIndex]<rightArray[rightIndex]){
             arr[mainArrayIndex++]=leftArray[leftIndex++];

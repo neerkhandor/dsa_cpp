@@ -10,7 +10,6 @@ vector<int> findDuplicates(vector<int>& nums) {
             if(nums[index]<0){
                 ans.push_back(index);
                 cout<<"duplicate index is "<<index<<endl;
-              
             }
             else{
                 nums[index]*=-1;

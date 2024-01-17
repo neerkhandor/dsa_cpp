@@ -1,0 +1,103 @@
+for every node left subtree ka data root se chota hoga
+and right subtree ka data root se bada hoga
+koi bhi tree mein single element hoto ham usko valid bst maanenge
+pehla jo bhi node aaya usko root banadiya 
+rukna kab hai -1 aayega tab ruk jayenge tab tak ham tree create karenge
+inorder of bst is always sorted
+in skew tree worst case
+har ek node max depth of tree tak jaati hai therefore avg case tc is O(logn)
+target > root->data then i will search in right sub tree
+agar raasta khatam hogaya hai to return false
+nahito left mein and right mein search karlo
+pehle jis node pe khade ho usko check karo and then left ki and right ki call maro
+inorder predecessor -> inorder agar traverse kiya hota to uske pehle ka node konsa hota
+inorder successor -> inorder agar traverse kiya hota to uske baad ka node konsa hota
+there are high chances that bst ke deletion ka variation ho in interview
+left subtree ka maxm value inorder predecessor
+right subtree ka minm value inorder successor
+the simple way to remove inorder successor and predecessor is to store it in an array 
+and whatever value is before that node it will be inorder successor and node after it will be
+inorder successor.
+to delete any node 4 cases can be there 
+jo bhi naya tree ban raha hai wo kaha ban raha hai root ke right mein 
+lec 2
+height/diameter ka same logic as normal binary tree
+validate bst
+method 1 -> store inorder if it is sorted then we can say it is valid bst
+tc -> O(n) for traversing the array
+
+method 2 -> single pass mein and mujhe kuch save na karna pade
+left node (-infinity,root->data) ke beech mein aata hai
+right node (root->data,+infinity) ke beech mein aata hai
+left mein ham jaayenge to uska lb aisa hi rahega but ub change hoga
+right mein ham jaayenge to uska ub aisa hi rahega but lb change hoga
+bc-> if(root==NULL) return true empty node bhi bst hi hota hai
+hamara left bhi true hona chahiye and right bhi true hona chahiye
+agar root ka data range mein nahi aata hota to ham sidha return false kardete
+
+lca v.imp
+same logic as binary tree but here since it is bst we have certain benefit
+p and q jaise hi not null hua to wo value return kardo
+for bst remember two things : inorder sorted and bst ki property
+there can be 4 cases 
+p and q are less than root->data matlab p and q dono left part of the tree mein hai to left ki call marenge
+p and q are more than root->data matlab p and q dono right part of the tree mein hai to right ki call marenge
+p < root->data and q > root->data so root hi hamara ans hai
+p > root->data and q < root->data so root hi hamara ans hai
+why this works because if p < root->data then it is sure it will be in keft subtree and 
+if q > root->data then it is sure that it will be in right subtree so the lca will be root itself
+dont be confuse between bst and bt
+if(root==NULL) return NULL
+ham sirf search kar rahe hai to sidha return kardiya
+tc->O(logn) ya to aap left ja rahe ho ya right to aap max height of the tree traverse karna padega
+skew tree hota to O(n)
+
+kth smallest element
+we are doing same as inorder agar left se hi ans aagaya to ham right mein call hi nahi karenge sidha wo hi return kardenge
+there are three cases ya to left se ans aayega ya to root khud ans hoga ya to right se ans aayega
+agar left tree se value other than -1 aaye matlab hamare paas ans aa chuka hai to right nein call marne ki need hi nahi hai
+
+inorder traversal se bst create karo
+sabse safe tarika mujhe kya pata hai ye inorder hai matlab lnr
+n kahapar exist kar rahi hai pehle aapka left part aa raha hai baadmein kahi right ka part aa raha hai to mujhe exact n ka 
+location malum nahi to agar mein n ko koi middle node consider kar lu to ek mast balanced tree ba jayega 
+middle ki value ko root man lenge
+why this will be balance ham mid node m=nikal rahe hai to ya to left subtree mein and right subtree mein equal no of nodes 
+hogi ya to right subtree mein ek value zyada hogi matlab height ki property to wo ab bhi maintain kar rahi hai
+left and right subtree ki zimmedari maine rec ko dedi i solved one case of root which will be the middle value
+if(s>e) invalid element matlb return null
+ham bst create kar rahe hai therefore root->left=bstUsingInorder(inorder,s,mid-1);
+root->right=bstUsingInorder(inorder,mid+1,e);
+
+tc->ham yahape n nodes ko create kar rahe hai and har node ko findout karne mein O(1) time lagta hai 
+ham left mein ja rahe hai and node daal rahe hai kyuki wo sorted hai to hame position to insert dhundhni nahi padti agar hame dhundhni padti to search ka alag se logn lagata
+
+2 sum (kya koi two numbers exist karte hai jinka sum equal to target)
+1st node is my traversal kya isse ans aa raha hai like if target is 320 then i will check with all element like ek element 20 hai to kya 300 present hai if yes then true
+so ye search karne mein alag se logn complexity jaayegi and to check all element n or so total nlogn
+for every option we are searching 
+in worst case it can go to O(n2)
+inorder is sorted ham two pointer use karlenge
+we will check while s<e why not equal to because ham ek hi element ka sum nahi karna chahte
+tc->O(n)+O(n) for storing + two pointer
+sc->O(n)
+2 good questions
+largest bst in binary tree
+merge two bst
+
+lec3 hard level ke question ka pattern
+i/p -> bst to sorted dll
+inorder 
+inplace jo space diya hai wo hi use karna hai
+bst se sorted dll tc->O(n)
+recursive call space sc->Ologn
+
+sorted ll to bst
+har ek node ko tree mein convert karte ja rahe ho
+tc->O(n)
+sc->O(h)
+
+largest bst in binary tree
+diameter fast wale pattern se hi banega ye question
+approach 
+take inorder array usme se sorted halves dhundhlo and usme se jiska bhi max length hai wo return karlo

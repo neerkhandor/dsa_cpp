@@ -2,7 +2,7 @@
 using namespace std;
 
 class Node{
- public:
+public:
     int data;
     Node* prev;
     Node* next;
@@ -18,7 +18,7 @@ class Node{
         this->prev=NULL;
     }
 };
- void print(Node* &head){
+void print(Node* &head){
         Node *temp=head;
         while(temp!=NULL){
             cout<<temp->data<<" ";
@@ -33,7 +33,8 @@ Node* getMiddle(Node*& head){
         return head;
     }
     Node* slow=head;
-    Node* fast=head;
+    // Node* fast=head;
+    Node* fast = head->next;
     while(fast!=NULL && slow!=NULL){
         fast=fast->next;
         if(fast!=NULL){
@@ -83,9 +84,9 @@ if(k>len){
     }
     //if we still have nodes to reverse
     if(forward!=NULL){
-     head->next= reversek(forward,k);
+    head->next= reversek(forward,k);
     }
-     return prev;
+    return prev;
 }
 bool checkForLoop(Node* &head){
     if(head==NULL){

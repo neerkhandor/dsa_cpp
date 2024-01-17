@@ -8,7 +8,7 @@ if(i+1>=n){
 }
 if(arr[i+1]>=arr[i]){
     int val=i+1;
-     return isSorted(arr,n,val);
+    return isSorted(arr,n,val);
 }
     return false;
 }
@@ -32,6 +32,9 @@ int binarySearch(int *arr,int &n,int &s,int &e,int &key){
         return mid;
     }
     if(arr[mid]>key){
+        //since you have done pass by reference you
+        //cant do directly mid-1 in position of e
+        //you have to store it in a variable and pass that variable
         e=mid-1;
         return binarySearch(arr,n,s,e,key);
     }
@@ -43,11 +46,18 @@ int binarySearch(int *arr,int &n,int &s,int &e,int &key){
     mid=s+(e-s)/2;
 }
 void printSubsequence(string ip,string op,int i,vector <string> &v){
+    //output string is a b ab ba
+    //to store all this strings we are using vector
+    //i is used to traverse ip string
     int n=ip.length();
+    //this question has a very famous pattern of 
+    //include exclude
     if(i>=n){
+        //if we reached end of the string means we are ready
+        //with the output string so we will push it
         v.push_back(op);
         // cout<<op<<endl;
-
+        //and since it is a void function we are just returning
         return;
     }
     // // exclusion

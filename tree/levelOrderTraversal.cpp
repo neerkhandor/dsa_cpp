@@ -3,14 +3,14 @@
 using namespace std;
 class Node{
     public:
-int data;
-Node* left;
-Node *right;
-Node(int data){
-    this->data=data;
-    this->left=NULL;
-    this->right=NULL;
-}
+    int data;
+    Node* left;
+    Node *right;
+    Node(int data){
+        this->data=data;
+        this->left=NULL;
+        this->right=NULL;
+    }
 };
 Node* buildtree(){
 int data;
@@ -22,6 +22,7 @@ cout<<endl;
 if(data== -1){
     return NULL;
 }
+// we are creating the tree so its structure will be changed therefore 
 Node *root=new Node(data);
 cout<<"Enter the data for inserting in the left of "<<data<<":";
 root->left=buildtree();
@@ -36,9 +37,11 @@ void levelOrderTraversal(Node* &root){
         Node*temp=q.front();
         q.pop();
         cout<<temp->data<<" ";
+        //if data in left exist then add left child
         if(temp->left){
             q.push(temp->left);
         }
+        //if data in right exist then add right child
         if(temp->right){
             q.push(temp->right);
         }
@@ -50,7 +53,7 @@ void levelOrderInLine(Node* &root){
     }
     queue<Node*> q;
     q.push(root);
-   // q.push(NULL);
+    q.push(NULL);
     while(!q.empty()){
         int n=q.size();
         for(int i=0;i<n;i++){

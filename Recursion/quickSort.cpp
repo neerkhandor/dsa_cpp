@@ -23,8 +23,11 @@ void qs(int *arr,int l,int h){
     //     return;
     // }
     if (l < h) {
+    //partition index is element which is the only element to its correct place
       int partitionIndex = partition(arr, l, h);
+      //now we will place elements lesser then partition index to its correct place
       qs(arr, l, partitionIndex - 1);
+      //now we will place elements greater then partition index to its correct place
       qs(arr, partitionIndex + 1, h);
     }
 }

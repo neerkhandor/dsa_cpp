@@ -23,6 +23,7 @@ int main(){
     // for(auto val:s){
     //     cout<<val<<" ";
     // }
+    //traversing the stack
     while(!s.empty()){
         cout<<s.top()<<" ";
         s.pop();

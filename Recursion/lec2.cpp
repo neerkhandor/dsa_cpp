@@ -3,6 +3,7 @@
 #include<vector>
 using namespace std;
 
+//similar to fibonacci
 int climbStairs(int n){
     if(n==1){
         return 1;
@@ -13,6 +14,7 @@ int climbStairs(int n){
     return climbStairs(n-1)+climbStairs(n-2);
 }
 void print(int arr[],int n,int& i){
+//if index goes out of bound then return 
 if(i>=n){
     return ;
 }
@@ -21,22 +23,23 @@ int val=i+1;
 print(arr,n,val);
 cout<<arr[i]<<" ";//reverse print
 }
-// void print(int arr[],int n){
-// if(n==0){
-//     return;
-// }
-// cout<<arr[0]<<" ";//1 case solved
-// print(arr+1,n-1);
-// }
+void print2(int arr[],int n){
+if(n==0){
+    return;
+}
+cout<<arr[0]<<" ";//1 case solved
+print2(arr+1,n-1);
+}
 
-//this will fall in an infinite loop
-// void print(int arr[],int n,int i){
-// if(i>=n){
-//     return ;
-// }
-// cout<<arr[i]<<" ";//1 case solved
-// print(arr,n,i++);
-// }
+//this will fall in an infinite loop 
+void print3(int arr[],int n,int &i){
+if(i>=n){
+    return ;
+}
+cout<<arr[i]<<" ";//1 case solved
+int val=i+1;
+print3(arr,n,val);
+}
 
 // void print(int arr[],int n,int i){
 // if(i>=n){
@@ -48,8 +51,11 @@ cout<<arr[i]<<" ";//reverse print
 
 int findMax(int arr[],int n,int &i,int &maxi){
     if(i>=n){
+        //after traversing the whole array maximum will be stored in maxi variable
         return maxi;
     }
+    //solving 1 case 
+    //ie 1st element is maximum and then giving it to recursion
     if(arr[i]>maxi){
         maxi=arr[i];
     }
@@ -69,9 +75,11 @@ int findMin(int arr[],int n,int &i,int &mini){
 }
 bool isPresent(int arr[],int n,int& i,int key){
     if(i>=n){
+        //if i goes out of bound and till that if nothing is returned means element is not present
         cout<<n<<endl;
         return false;
     }
+    //solving 1 case 
     if(arr[i]==key){
         return true;
     }
@@ -123,6 +131,11 @@ int main(){
         // print(arr,size);//without index
         print(arr,size,i);
         cout<<endl;
+        print2(arr,size);
+        cout<<endl;
+        cout<<"testing"<<endl;
+        print3(arr,size,i);
+        cout<<endl;
         int maxi=INT_MIN;
         int ans1=findMax(arr,size,i,maxi);
         cout<<"Maximum Element in the array is "<<ans1<<endl;
@@ -153,7 +166,7 @@ int main(){
         cout<<"Character is present at index "<<val<<endl;
         vector<int> storage;
         isCharPresStore(str,n,i,key_char,storage);
-       for(auto val:storage){
+        for(auto val:storage){
         cout<<val<<" ";
-       }
+        }
 }
